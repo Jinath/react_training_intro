@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemList from './components/ItemList';
+import { Fragment } from 'react';
+
 
 function App() {
+  const items = ['Colombo', 'Galle', 'Jaffna', 'Kandy'];
+  const items2 = ['Sri Lanka', 'Pakistan'];
+
+  const onSelectedCity=(item)=>{
+    console.log(item);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <ItemList items={items} title={'City List'} onSelected={onSelectedCity}></ItemList>
+      <ItemList items={items2}></ItemList>
+    </Fragment>
   );
 }
 
